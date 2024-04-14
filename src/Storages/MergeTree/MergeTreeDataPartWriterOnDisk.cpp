@@ -392,7 +392,7 @@ void MergeTreeDataPartWriterOnDisk::calculateAndSerializeSkipIndices(const Block
             ProfileEventTimeIncrement<Microseconds> watch(ProfileEvents::MergeTreeDataWriterSkipIndicesCalculationMicroseconds);
 
             size_t pos = granule.start_row;
-            skip_indices_aggregators[i]->update(skip_indexes_block, &pos, granule.rows_to_write);
+            skip_indices_aggregators[i]->update(skip_indexes_block, &pos, granule.rows_to_write, granule.mark_number);
             if (granule.is_complete)
                 ++skip_index_accumulated_marks[i];
 

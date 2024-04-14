@@ -46,7 +46,7 @@ struct MergeTreeIndexAggregatorInverted final : IMergeTreeIndexAggregator
     bool empty() const override { return !granule || granule->empty(); }
     MergeTreeIndexGranulePtr getGranuleAndReset() override;
 
-    void update(const Block & block, size_t * pos, size_t limit) override;
+    void update(const Block & block, size_t * pos, size_t limit, [[maybe_unused]] size_t mark_number_) override;
 
     void addToGinFilter(UInt32 rowID, const char * data, size_t length, GinFilter & gin_filter);
 

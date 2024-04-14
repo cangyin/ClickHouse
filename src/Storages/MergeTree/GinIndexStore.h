@@ -98,9 +98,6 @@ struct GinIndexSegment
     ///  Segment ID retrieved from next available ID from file .gin_sid
     UInt32 segment_id = 0;
 
-    /// Start row ID for this segment
-    UInt32 next_row_id = 1;
-
     /// .gin_post file offset of this segment's postings lists
     UInt64 postings_start_offset = 0;
 
@@ -135,9 +132,6 @@ public:
 
     /// Check existence by checking the existence of file .gin_sid
     bool exists() const;
-
-    /// Get a range of next 'numIDs'-many available row IDs
-    UInt32 getNextRowIDRange(size_t numIDs);
 
     /// Get next available segment ID by updating file .gin_sid
     UInt32 getNextSegmentID();

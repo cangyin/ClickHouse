@@ -210,13 +210,6 @@ UInt32 GinIndexStore::getNextSegmentIDRange(const String & file_name, size_t n)
     return result;
 }
 
-UInt32 GinIndexStore::getNextRowIDRange(size_t numIDs)
-{
-    UInt32 result = current_segment.next_row_id;
-    current_segment.next_row_id += numIDs;
-    return result;
-}
-
 UInt32 GinIndexStore::getNextSegmentID()
 {
     String segment_id_file_name = getName() + GIN_SEGMENT_ID_FILE_TYPE;
